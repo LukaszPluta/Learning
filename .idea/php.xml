@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/composer" />
+      <path value="$PROJECT_DIR$/VILP-3-First-Symfony-Project-Creating-Git-Repository/vendor/psr/container" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+</project>
