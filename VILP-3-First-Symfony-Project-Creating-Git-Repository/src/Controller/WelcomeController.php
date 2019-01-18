@@ -3,18 +3,17 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class WelcomeController
+class WelcomeController  extends AbstractController
 {
     public function hello()
     {
         $date = date('m/d/Y h:i:s a', time());
 
-        return new Response(
-            '<html><body><h1>Hello World</h1>'.
-                    '<p>Aktualna data to: '.$date.'</p>'.
-                    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque consequat augue ac sodales. Fusce velit risus, convallis eu interdum convallis, mattis a velit. Phasellus at maximus metus, vel consectetur lectus. Fusce non libero non enim mollis mollis quis vel mauris. Mauris a ultrices odio. Phasellus interdum ut dolor eget ullamcorper. Phasellus pharetra nisi in velit commodo luctus. Integer efficitur sapien dui, nec tincidunt massa mattis a. Cras ligula nibh, fringilla eleifend feugiat sed, tincidunt nec erat. Donec bibendum scelerisque leo, et condimentum augue. Maecenas rutrum ac ante sed dictum. Nunc dictum porta consectetur. Ut at porta risus, eu vulputate est. Mauris sed libero vulputate, hendrerit risus et, aliquet nisi. Nunc fermentum est neque, vitae ornare massa mattis at. </p>'.
-                    '</body></html>'
-        );
+        return $this->render('firstTwig.html.twig',[
+            'date'=>$date,
+        ]);
+
     }
 }
