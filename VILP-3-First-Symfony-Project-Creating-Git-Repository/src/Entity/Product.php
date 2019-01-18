@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TelefonRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  */
 class Product
 {
@@ -24,7 +24,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private description;
+    private $description;
 
     /**
      * @ORM\Column(type="datetime")
