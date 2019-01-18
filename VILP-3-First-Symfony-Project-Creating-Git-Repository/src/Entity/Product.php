@@ -24,7 +24,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $descripton;
+    private description;
 
     /**
      * @ORM\Column(type="datetime")
@@ -53,14 +53,14 @@ class Product
         return $this;
     }
 
-    public function getDescripton(): ?string
+    public function getDescription(): ?string
     {
-        return $this->descripton;
+        return $this->description;
     }
 
-    public function setDescripton(string $descripton): self
+    public function setDescription(string $description): self
     {
-        $this->descripton = $descripton;
+        $this->description = $description;
 
         return $this;
     }
