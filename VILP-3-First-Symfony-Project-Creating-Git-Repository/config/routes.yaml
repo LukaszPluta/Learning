@@ -1,6 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-app_lucky_number:
+welcome:
   path: /welcome
   controller: App\Controller\WelcomeController::hello
