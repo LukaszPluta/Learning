@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Category_name</th>
                 <th>DateOfCreation</th>
                 <th>DateLastMod</th>
                 <th>actions</th>
@@ -23,6 +24,7 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
+                <td><a href="{{ path('product_category_show', {'id': product.category.id}) }}">{{ product.category.name }}</a></td>
                 <td>{{ product.dateOfCreation ? product.dateOfCreation|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ product.dateLastMod ? product.dateLastMod|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

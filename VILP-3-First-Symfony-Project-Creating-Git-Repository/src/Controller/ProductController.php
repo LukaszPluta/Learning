@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Entity\ProductCategory;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,7 +31,10 @@ class ProductController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $product = new Product();
+
+
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 

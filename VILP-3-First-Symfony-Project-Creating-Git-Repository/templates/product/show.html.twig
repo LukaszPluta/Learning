@@ -20,6 +20,10 @@
                 <td>{{ product.description }}</td>
             </tr>
             <tr>
+                <th>Category_id</th>
+                <td>{{ product.category.id }}</td>
+            </tr>
+            <tr>
                 <th>DateOfCreation</th>
                 <td>{{ product.dateOfCreation ? product.dateOfCreation|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
