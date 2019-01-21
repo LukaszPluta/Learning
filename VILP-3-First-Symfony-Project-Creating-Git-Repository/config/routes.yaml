@@ -4,3 +4,7 @@
 welcome:
   path: /welcome
   controller: App\Controller\WelcomeController::hello
+
+product-category:
+    path: /product-category
+    controller: App\Controller\ProductCategoryController::index

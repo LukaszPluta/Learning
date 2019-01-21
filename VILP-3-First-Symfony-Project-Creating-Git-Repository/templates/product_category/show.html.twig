@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>ProductCategory</h1>
-
     <table class="table">
         <tbody>
             <tr>
@@ -30,6 +29,14 @@
         </tbody>
     </table>
 
+    <table class="table">
+    {% for product in product_category.products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+        </tr>
+    {% endfor %}
+    </table>
     <a href="{{ path('product_category_index') }}">back to list</a>
 
     <a href="{{ path('product_category_edit', {'id': product_category.id}) }}">edit</a>
