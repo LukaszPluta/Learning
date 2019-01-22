@@ -46,6 +46,11 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('product_index');
         }
 
+        $this->addFlash(
+            'notice',
+            'Product created'
+        );
+
         return $this->render('product/new.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
@@ -67,6 +72,8 @@ class ProductController extends AbstractController
      */
     public function edit(Request $request, Product $product): Response
     {
+        try
+        {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
@@ -77,6 +84,13 @@ class ProductController extends AbstractController
                 'id' => $product->getId(),
             ]);
         }
+
+        }catch (\Exception $e) {
+            $this->addFlash(
+                'notice',
+                'Error'
+            );
+        };
 
         return $this->render('product/edit.html.twig', [
             'product' => $product,
@@ -89,11 +103,24 @@ class ProductController extends AbstractController
      */
     public function delete(Request $request, Product $product): Response
     {
+        try
+        {
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'notice',
+            'Product deleted'
+        );
+        }catch (\Exception $e) {
+            $this->addFlash(
+                'notice',
+                'Error'
+            );
+        };
 
         return $this->redirectToRoute('product_index');
     }
