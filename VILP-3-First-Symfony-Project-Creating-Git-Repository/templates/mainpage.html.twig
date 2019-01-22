@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+        {% block body %}
+            <ul>
+                <li><a href="#">MainPage</a></li>
+                <li><a href="{{ path('product_category_index') }}">Categories</a>
+                        {% for product in products %}
+                            <ul>
+                                <li><a href="{{ path('product_category_show', {'id': product.id}) }}">{{ product.name }}</a></li>
+                            </ul>
+                        {% endfor %}
+                </li>
+            </ul>
+
+        {% endblock %}
