@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Product
 {
@@ -105,5 +106,23 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist() {
+
+        $this->dateOfCreation=new \DateTime();
+        $this->dateLastMod =new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate() {
+
+        $this->dateLastMod =new \DateTime();
+
     }
 }
