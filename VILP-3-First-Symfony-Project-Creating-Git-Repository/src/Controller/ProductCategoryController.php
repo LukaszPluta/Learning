@@ -39,6 +39,11 @@ class ProductCategoryController extends AbstractController
             $entityManager->persist($productCategory);
             $entityManager->flush();
 
+            $this->addFlash(
+                'notice2',
+                'Category created'
+            );
+
             return $this->redirectToRoute('product_category_index');
         }
 
@@ -63,17 +68,31 @@ class ProductCategoryController extends AbstractController
      */
     public function edit(Request $request, ProductCategory $productCategory): Response
     {
+        try
+        {
         $form = $this->createForm(ProductCategoryType::class, $productCategory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'notice2',
+                'Category updated'
+            );
+
             return $this->redirectToRoute('product_category_index', [
                 'id' => $productCategory->getId(),
             ]);
+
         }
 
+        }catch (\Exception $e) {
+            $this->addFlash(
+                'notice2',
+                'Error'
+            );
+        };
         return $this->render('product_category/edit.html.twig', [
             'product_category' => $productCategory,
             'form' => $form->createView(),
@@ -85,12 +104,28 @@ class ProductCategoryController extends AbstractController
      */
     public function delete(Request $request, ProductCategory $productCategory): Response
     {
+        try
+        {
         if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($productCategory);
             $entityManager->flush();
         }
 
+        $this->addFlash(
+            'notice2',
+            'Category deleted'
+        );
+
         return $this->redirectToRoute('product_category_index');
+
+        }catch (\Exception $e) {
+            $this->addFlash(
+                'notice2',
+                'Error'
+                );
+        };
+
+return $this->redirectToRoute('product_category_index');
     }
 }

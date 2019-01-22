@@ -37,5 +37,11 @@
         </tbody>
     </table>
 
+    {% for message in app.flashes('notice2') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <a href="{{ path('product_category_new') }}">Create new</a>
 {% endblock %}
