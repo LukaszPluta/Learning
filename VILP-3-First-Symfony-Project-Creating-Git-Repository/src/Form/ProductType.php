@@ -15,9 +15,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
-            ->add('dateOfCreation')
-            ->add('dateLastMod');
+            ->add('description');
 
         $builder->add('category', EntityType::class, [
             // looks for choices from this entity
