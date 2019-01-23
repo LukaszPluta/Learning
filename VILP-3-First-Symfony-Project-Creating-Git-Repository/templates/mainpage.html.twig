@@ -1,15 +1,24 @@
-{% extends 'base.html.twig' %}
+{#{% for article in articles %}#}
+    {#<a href="{{ path('product_category_index', {'id': article.id}) }}">#}
+        {#{{ article.name }}#}
+    {#</a>#}
+{#{% endfor %}#}
 
-        {% block body %}
+
+
+
+
+{#{% extends 'base2.html.twig' %}#}
+        {#{% block body2 %}#}
             <ul>
-                <li><a href="#">MainPage</a></li>
+                <li><a href="/">MainPage</a></li>
                 <li><a href="{{ path('product_category_index') }}">Categories</a>
-                        {% for product in products %}
+                        {% for article in articles %}
                             <ul>
-                                <li><a href="{{ path('product_category_show', {'id': product.id}) }}">{{ product.name }}</a></li>
+                                <li><a href="{{ path('product_category_show', {'id': article.id}) }}">{{ article.name }}</a></li>
                             </ul>
                         {% endfor %}
                 </li>
             </ul>
 
-        {% endblock %}
+        {#{% endblock %}#}
