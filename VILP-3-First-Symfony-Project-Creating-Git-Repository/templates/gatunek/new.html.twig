@@ -1,0 +1,11 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}New Gatunek{% endblock %}
+
+{% block body %}
+    <h1>Create new Gatunek</h1>
+
+    {{ include('gatunek/_form.html.twig') }}
+
+    <a href="{{ path('gatunek_index') }}">back to list</a>
+{% endblock %}

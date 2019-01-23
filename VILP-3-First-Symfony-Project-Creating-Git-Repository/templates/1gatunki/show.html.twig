@@ -1,0 +1,30 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Gatunki{% endblock %}
+
+{% block body %}
+    <h1>Gatunki</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gatunki.id }}</td>
+            </tr>
+            <tr>
+                <th>NazwaGat</th>
+                <td>{{ gatunki.nazwaGat }}</td>
+            </tr>
+            <tr>
+                <th>Opis</th>
+                <td>{{ gatunki.opis }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('gatunki_index') }}">back to list</a>
+
+    <a href="{{ path('gatunki_edit', {'id': gatunki.id}) }}">edit</a>
+
+    {{ include('gatunki/_delete_form.html.twig') }}
+{% endblock %}

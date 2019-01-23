@@ -12,3 +12,19 @@ product-category:
 product:
   path: /product
   controller: App\Controller\ProductController::index
+
+library:
+    path: /library
+    controller: App\Controller\LocalLibraryController::hello
+
+ksiazki:
+  path: /ksiazka
+  controller: App\Controller\KsiazkaController::index
+
+autor:
+  path: /autor
+  controller: App\Controller\AutorController::index
+
+gatunki:
+  path: /gatunek
+  controller: App\Controller\GatunekController::index

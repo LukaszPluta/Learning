@@ -1,0 +1,50 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ksiazka{% endblock %}
+
+{% block body %}
+    <h1>Ksiazka</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ksiazka.id }}</td>
+            </tr>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ ksiazka.nazwa }}</td>
+            </tr>
+            <tr>
+                <th>Opis</th>
+                <td>{{ ksiazka.opis }}</td>
+            </tr>
+            <tr>
+                <th>Rok</th>
+                <td>{{ ksiazka.rok }}</td>
+            </tr>
+            <tr>
+                <th>Kraj</th>
+                <td>{{ ksiazka.kraj }}</td>
+            </tr>
+            <tr>
+                <th>Dostepnosc</th>
+                <td>{{ ksiazka.dostepnosc ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DataDodania</th>
+                <td>{{ ksiazka.dataDodania ? ksiazka.dataDodania|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DataEdycji</th>
+                <td>{{ ksiazka.dataEdycji ? ksiazka.dataEdycji|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('ksiazka_index') }}">back to list</a>
+
+    <a href="{{ path('ksiazka_edit', {'id': ksiazka.id}) }}">edit</a>
+
+    {{ include('ksiazka/_delete_form.html.twig') }}
+{% endblock %}

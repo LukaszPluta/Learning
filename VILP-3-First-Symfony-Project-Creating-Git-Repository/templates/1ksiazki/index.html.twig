@@ -1,0 +1,57 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ksiazki index{% endblock %}
+
+{% block body %}
+    <h1>Ksiazki index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tytul</th>
+                <th>Opis</th>
+                <th>Autor</th>
+                <th>Gatunek</th>
+                <th>RokWydania</th>
+                <th>KrajWydania</th>
+                <th>Dostepnosc</th>
+                <th>DataDodania</th>
+                <th>DataEdycji</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ksiazki in ksiazkis %}
+            <tr>
+                <td>{{ ksiazki.id }}</td>
+                <td>{{ ksiazki.tytul }}</td>
+                <td>{{ ksiazki.opis }}</td>
+                <td>{{ ksiazki.autor }}</td>
+                <td>{{ ksiazki.gatunki }}</td>
+                <td>{{ ksiazki.rokWydania }}</td>
+                <td>{{ ksiazki.krajWydania }}</td>
+                <td>{{ ksiazki.dostepnosc ? 'Yes' : 'No' }}</td>
+                <td>{{ ksiazki.dataDodania ? ksiazki.dataDodania|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ ksiazki.dataEdycji ? ksiazki.dataEdycji|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('ksiazki_show', {'id': ksiazki.id}) }}">show</a>
+                    <a href="{{ path('ksiazki_edit', {'id': ksiazki.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for message in app.flashes('ksiazki') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('ksiazki_new') }}">Create new</a>
+{% endblock %}

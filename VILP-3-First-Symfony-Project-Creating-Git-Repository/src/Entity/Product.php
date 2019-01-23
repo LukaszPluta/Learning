@@ -37,12 +37,6 @@ class Product
      */
     private $dateLastMod;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ProductCategory", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $category;
-
     public function getId(): ?int
     {
         return $this->id;

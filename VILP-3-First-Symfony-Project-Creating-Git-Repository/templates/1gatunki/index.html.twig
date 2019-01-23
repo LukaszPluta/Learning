@@ -1,0 +1,43 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Gatunki index{% endblock %}
+
+{% block body %}
+    <h1>Gatunki index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NazwaGat</th>
+                <th>Opis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gatunki in gatunkis %}
+            <tr>
+                <td>{{ gatunki.id }}</td>
+                <td>{{ gatunki.nazwaGat }}</td>
+                <td>{{ gatunki.opis }}</td>
+                <td>
+                    <a href="{{ path('gatunki_show', {'id': gatunki.id}) }}">show</a>
+                    <a href="{{ path('gatunki_edit', {'id': gatunki.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for message in app.flashes('gatunek') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('gatunki_new') }}">Create new</a>
+{% endblock %}
