@@ -13,16 +13,13 @@ use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class WelcomeController  extends AbstractController
+class LocalController  extends AbstractController
 {
 
     public function hello(ProductCategoryRepository $productCategoryRepository)
     {
-        $date = date('m/d/Y h:i:s a');
 
-        return $this->render('firstTwig.html.twig',[
-            'date'=>$date,
-        ]);
+        return $this->render('local.html.twig');
     }
 
 
