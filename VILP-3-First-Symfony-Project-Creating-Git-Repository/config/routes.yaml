@@ -12,3 +12,7 @@ product-category:
 product:
   path: /product
   controller: App\Controller\ProductController::index
+
+library:
+  path: /library
+  controller: App\Controller\LibraryController::index
