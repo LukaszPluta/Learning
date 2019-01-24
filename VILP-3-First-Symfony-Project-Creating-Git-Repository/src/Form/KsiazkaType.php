@@ -20,15 +20,13 @@ class KsiazkaType extends AbstractType
             ->add('rokWydania')
             ->add('krajWydania')
             ->add('dostepnosc')
-            ->add('dataDodania')
-            ->add('dataEdycji')
         ;
         $builder->add('gatunek', EntityType::class, [
             // looks for choices from this entity
             'class' => Gatunek::class,
 
             // uses the User.username property as the visible option string
-            'choice_label' => 'id',
+            'choice_label' => 'nazwa',
 
             // used to render a select box, check boxes or radios
             // 'multiple' => true,
@@ -40,7 +38,7 @@ class KsiazkaType extends AbstractType
             'class' => Autor::class,
 
             // uses the User.username property as the visible option string
-            'choice_label' => 'id',
+            'choice_label' => 'nazwisko',
 
             // used to render a select box, check boxes or radios
             // 'multiple' => true,

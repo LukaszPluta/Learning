@@ -29,7 +29,7 @@
                 <td>{{ ksiazka.opis }}</td>
                 <td>{{ ksiazka.rokWydania }}</td>
                 <td>{{ ksiazka.krajWydania }}</td>
-                <td>{{ ksiazka.dostepnosc ? 'Yes' : 'No' }}</td>
+                <td>{{ ksiazka.dostepnosc ? 'Dostepna' : 'Wypozyczona' }}</td>
                 <td><a href="{{ path('autor_show', {'id': ksiazka.autor.id}) }}">{{ ksiazka.autor.imie }} {{ ksiazka.autor.nazwisko }}</a></td>
                 <td><a href="{{ path('gatunek_show', {'id': ksiazka.gatunek.id}) }}">{{ ksiazka.gatunek.nazwa }}</a></td>
                 <td>{{ ksiazka.dataDodania ? ksiazka.dataDodania|date('Y-m-d') : '' }}</td>
@@ -46,6 +46,12 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {% for message in app.flashes('note') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <a href="{{ path('ksiazka_new') }}">Create new</a>
 {% endblock %}

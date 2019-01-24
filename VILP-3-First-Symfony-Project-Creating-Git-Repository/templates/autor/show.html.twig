@@ -34,6 +34,33 @@
         </tbody>
     </table>
 
+    <table class="table">
+        {% for autors in autor.ksiazkas %}
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ autors.id }}</td>
+            </tr>
+            <tr>
+                <td>tytul</td>
+                <td>{{ autors.tytul }}</td>
+            </tr>
+            <tr>
+                <td>gatunek</td>
+                <td><a href="{{ path('gatunek_show', {'id': autors.gatunek.id}) }}">{{ autors.gatunek.nazwa }}</a></td>
+            </tr>
+            <tr>
+                <td>rok wydania</td>
+                <td>{{ autors.rokWydania }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="{{ path('ksiazka_show', {'id': autors.id}) }}">show</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
     <a href="{{ path('autor_index') }}">back to list</a>
 
     <a href="{{ path('autor_edit', {'id': autor.id}) }}">edit</a>

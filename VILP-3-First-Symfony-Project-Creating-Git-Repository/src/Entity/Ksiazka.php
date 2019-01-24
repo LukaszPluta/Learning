@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\KsiazkaRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Ksiazka
 {
@@ -177,5 +178,22 @@ class Ksiazka
         $this->autor = $autor;
 
         return $this;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist() {
+
+        $this->dataDodania=new \DateTime();
+        $this->dataEdycji =new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate() {
+
+        $this->dataEdycji =new \DateTime();
+
     }
 }

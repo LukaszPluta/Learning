@@ -44,6 +44,11 @@ class KsiazkaController extends AbstractController
             return $this->redirectToRoute('ksiazka_index');
         }
 
+        $this->addFlash(
+            'note',
+            'Dodano ksiazke'
+        );
+
         return $this->render('ksiazka/new.html.twig', [
             'ksiazka' => $ksiazka,
             'form' => $form->createView(),
