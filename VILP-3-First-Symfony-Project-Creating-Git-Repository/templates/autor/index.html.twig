@@ -1,0 +1,49 @@
+{% extends 'baselibrary.html.twig' %}
+
+{% block title %}Autor index{% endblock %}
+
+{% block body %}
+    <h1>Autor index</h1>
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>KrajPochodzenia</th>
+                <th>RokUrodzenia</th>
+                <th>RokSmierci</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for autor in autors %}
+            <tr>
+                <td>{{ autor.id }}</td>
+                <td>{{ autor.imie }}</td>
+                <td>{{ autor.nazwisko }}</td>
+                <td>{{ autor.krajPochodzenia }}</td>
+                <td>{{ autor.rokUrodzenia }}</td>
+                <td>{{ autor.rokSmierci }}</td>
+                <td>
+                    <a href="{{ path('autor_show', {'id': autor.id}) }}">show</a>
+                    <a href="{{ path('autor_edit', {'id': autor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for message in app.flashes('note') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('autor_new') }}">Create new</a>
+{% endblock %}

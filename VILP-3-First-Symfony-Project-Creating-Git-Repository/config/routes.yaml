@@ -1,6 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\LocalController::hello
 welcome:
   path: /welcome
   controller: App\Controller\WelcomeController::hello
@@ -8,3 +8,11 @@ welcome:
 product-category:
     path: /product-category
     controller: App\Controller\ProductCategoryController::index
+
+product:
+  path: /product
+  controller: App\Controller\ProductController::index
+
+library:
+  path: /library
+  controller: App\Controller\LibraryController::index

@@ -1,0 +1,13 @@
+{% extends 'baselibrary.html.twig' %}
+
+{% block title %}Edit Gatunek: {{ gatunek.nazwa }}{% endblock %}
+
+{% block body %}
+    <h1>Edit Gatunek</h1>
+
+    {{ include('gatunek/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('gatunek_index') }}">back to list</a>
+
+    {{ include('gatunek/_delete_form.html.twig') }}
+{% endblock %}

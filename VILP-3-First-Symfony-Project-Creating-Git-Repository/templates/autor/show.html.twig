@@ -1,0 +1,69 @@
+{% extends 'baselibrary.html.twig' %}
+
+{% block title %}Autor: {{ autor.imie }} {{ autor.nazwisko }}{% endblock %}
+
+{% block body %}
+    <h1>Autor</h1>
+
+    <table class="table table-striped table-dark">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ autor.id }}</td>
+            </tr>
+            <tr>
+                <th>Imie</th>
+                <td>{{ autor.imie }}</td>
+            </tr>
+            <tr>
+                <th>Nazwisko</th>
+                <td>{{ autor.nazwisko }}</td>
+            </tr>
+            <tr>
+                <th>KrajPochodzenia</th>
+                <td>{{ autor.krajPochodzenia }}</td>
+            </tr>
+            <tr>
+                <th>RokUrodzenia</th>
+                <td>{{ autor.rokUrodzenia }}</td>
+            </tr>
+            <tr>
+                <th>RokSmierci</th>
+                <td>{{ autor.rokSmierci }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-dark">
+        {% for autors in autor.ksiazkas %}
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ autors.id }}</td>
+            </tr>
+            <tr>
+                <td>tytul</td>
+                <td>{{ autors.tytul }}</td>
+            </tr>
+            <tr>
+                <td>gatunek</td>
+                <td><a href="{{ path('gatunek_show', {'id': autors.gatunek.id}) }}">{{ autors.gatunek.nazwa }}</a></td>
+            </tr>
+            <tr>
+                <td>rok wydania</td>
+                <td>{{ autors.rokWydania }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="{{ path('ksiazka_show', {'id': autors.id}) }}">show</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+    <a href="{{ path('autor_index') }}">back to list</a>
+
+    <a href="{{ path('autor_edit', {'id': autor.id}) }}">edit</a>
+
+    {{ include('autor/_delete_form.html.twig') }}
+{% endblock %}

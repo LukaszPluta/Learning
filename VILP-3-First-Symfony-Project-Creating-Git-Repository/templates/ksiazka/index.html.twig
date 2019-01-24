@@ -1,0 +1,57 @@
+{% extends 'baselibrary.html.twig' %}
+
+{% block title %}Ksiazka index{% endblock %}
+
+{% block body %}
+    <h1>Ksiazka index</h1>
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tytul</th>
+                <th>Opis</th>
+                <th>RokWydania</th>
+                <th>KrajWydania</th>
+                <th>Dostepnosc</th>
+                <th>autor</th>
+                <th>gatunek</th>
+                <th>DataDodania</th>
+                <th>DataEdycji</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ksiazka in ksiazkas %}
+            <tr>
+                <td>{{ ksiazka.id }}</td>
+                <td>{{ ksiazka.tytul }}</td>
+                <td>{{ ksiazka.opis }}</td>
+                <td>{{ ksiazka.rokWydania }}</td>
+                <td>{{ ksiazka.krajWydania }}</td>
+                <td>{{ ksiazka.dostepnosc ? 'Dostepna' : 'Wypozyczona' }}</td>
+                <td><a href="{{ path('autor_show', {'id': ksiazka.autor.id}) }}">{{ ksiazka.autor.imie }} {{ ksiazka.autor.nazwisko }}</a></td>
+                <td><a href="{{ path('gatunek_show', {'id': ksiazka.gatunek.id}) }}">{{ ksiazka.gatunek.nazwa }}</a></td>
+                <td>{{ ksiazka.dataDodania ? ksiazka.dataDodania|date('Y-m-d') : '' }}</td>
+                <td>{{ ksiazka.dataEdycji ? ksiazka.dataEdycji|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('ksiazka_show', {'id': ksiazka.id}) }}">show</a>
+                    <a href="{{ path('ksiazka_edit', {'id': ksiazka.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for message in app.flashes('note') %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('ksiazka_new') }}">Create new</a>
+{% endblock %}
