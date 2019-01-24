@@ -43,7 +43,10 @@ class GatunekController extends AbstractController
 
             return $this->redirectToRoute('gatunek_index');
         }
-
+        $this->addFlash(
+            'note',
+            'Dodano gatunek'
+        );
         return $this->render('gatunek/new.html.twig', [
             'gatunek' => $gatunek,
             'form' => $form->createView(),
@@ -76,6 +79,11 @@ class GatunekController extends AbstractController
             ]);
         }
 
+        $this->addFlash(
+            'note',
+            'edytowano gatunek'
+        );
+
         return $this->render('gatunek/edit.html.twig', [
             'gatunek' => $gatunek,
             'form' => $form->createView(),
@@ -92,6 +100,11 @@ class GatunekController extends AbstractController
             $entityManager->remove($gatunek);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'note',
+            'usunieto gatunek'
+        );
 
         return $this->redirectToRoute('gatunek_index');
     }

@@ -76,10 +76,18 @@ class KsiazkaController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+
             return $this->redirectToRoute('ksiazka_index', [
                 'id' => $ksiazka->getId(),
             ]);
+
         }
+
+        $this->addFlash(
+            'note',
+            'edytowano ksiazke'
+        );
+
 
         return $this->render('ksiazka/edit.html.twig', [
             'ksiazka' => $ksiazka,
@@ -97,6 +105,11 @@ class KsiazkaController extends AbstractController
             $entityManager->remove($ksiazka);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'note',
+            'usunieto ksiazke'
+        );
 
         return $this->redirectToRoute('ksiazka_index');
     }

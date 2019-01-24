@@ -1,9 +1,9 @@
 {% extends 'baselibrary.html.twig' %}
 
-{% block title %}Edit Ksiazka{% endblock %}
+{% block title %}Edit Ksiazka: {{ ksiazka.tytul }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Ksiazka</h1>
+    <h1>Edit Ksiazka: </h1>
 
     {{ include('ksiazka/_form.html.twig', {'button_label': 'Update'}) }}
 

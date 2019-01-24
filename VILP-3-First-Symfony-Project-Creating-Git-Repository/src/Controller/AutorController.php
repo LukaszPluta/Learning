@@ -43,6 +43,10 @@ class AutorController extends AbstractController
 
             return $this->redirectToRoute('autor_index');
         }
+        $this->addFlash(
+            'note',
+            'Dodano autora'
+        );
 
         return $this->render('autor/new.html.twig', [
             'autor' => $autor,
@@ -71,10 +75,17 @@ class AutorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'note',
+                'edytowano autora'
+            );
+
             return $this->redirectToRoute('autor_index', [
                 'id' => $autor->getId(),
             ]);
         }
+
+
 
         return $this->render('autor/edit.html.twig', [
             'autor' => $autor,
@@ -92,6 +103,11 @@ class AutorController extends AbstractController
             $entityManager->remove($autor);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'note',
+            'usunieto autora'
+        );
 
         return $this->redirectToRoute('autor_index');
     }

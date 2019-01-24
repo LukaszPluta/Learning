@@ -13,8 +13,7 @@ class LibraryController extends AbstractController
     {
 
         return $this->render(
-            'mainPage.library.html.twig',
-            ['articles' => $productCategoryRepository->findAll()]
+            'local.library.html.twig'
         );
     }
 
